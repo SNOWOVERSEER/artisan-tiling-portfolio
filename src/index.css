@@ -107,3 +107,17 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(43 72% 53%);
 }
+
+/* ── Anti-scrape: prevent casual content lifting ── */
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Re-enable pointer events on interactive image containers (portfolio, lightbox) */
+[role="dialog"] img,
+.group img {
+  pointer-events: auto;
+}
