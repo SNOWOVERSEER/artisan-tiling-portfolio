@@ -1,12 +1,9 @@
 {
-  "title": {
-    "en": "Heritage Tile Restoration",
-    "zh": "历史瓷砖修复"
-  },
+  "title": { "en": "Heritage Tile Restoration", "zh": "历史瓷砖修复" },
   "category": "residential",
   "description": {
-    "en": "Careful restoration of original tessellated tiles in a heritage property. Matching replacement tiles sourced, levelled, and installed to preserve period character.",
-    "zh": "精心修复历史建筑的原始花砖。匹配替换瓷砖采购、找平和安装，保留时代特色。"
+    "en": "Meticulous restoration of original tessellated verandah and hallway tiles in a Victorian-era home in Kew. Sourced matching reproduction tiles, re-levelled the substrate, repaired border details, and sealed the entire floor to preserve its period character.",
+    "zh": "Kew维多利亚时期住宅门廊和走廊原始花砖的精心修复。采购匹配复刻瓷砖、重新找平基底、修复边框细节，并对整体地面进行密封处理以保留时代特色。"
   },
   "photos": 0
 }

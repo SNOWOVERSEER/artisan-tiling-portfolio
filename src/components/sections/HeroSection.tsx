@@ -52,7 +52,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-20 lg:pt-0 lg:pb-0">
       {/* Background */}
       <div className="absolute inset-0">
         <div
@@ -143,7 +143,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="mt-16 flex gap-12 border-t border-border/30 pt-8"
+            className="mt-10 lg:mt-16 flex flex-wrap gap-8 lg:gap-12 border-t border-border/30 pt-6 lg:pt-8"
           >
             <div>
               <span
@@ -181,7 +181,7 @@ export default function HeroSection() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2"
       >
         <span className="text-silver-dark text-xs tracking-widest uppercase">
           {t.hero.scrollDown}

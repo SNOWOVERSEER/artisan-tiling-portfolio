@@ -211,9 +211,9 @@ export default function ServicesSection() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 style={{ perspective: 1200 }}
               >
-                {/* Fixed-height flip container */}
+                {/* Flip container — auto height on mobile, fixed on md+ */}
                 <div
-                  className="relative w-full h-[400px]"
+                  className="relative w-full h-auto md:h-[400px]"
                   style={{
                     transformStyle: "preserve-3d",
                     transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -222,9 +222,9 @@ export default function ServicesSection() {
                       : "rotateY(0deg)",
                   }}
                 >
-                  {/* FRONT - Residential */}
+                  {/* FRONT - Residential (relative so parent gets height on mobile) */}
                   <div
-                    className="absolute inset-0"
+                    className="relative md:absolute md:inset-0"
                     style={{
                       backfaceVisibility: "hidden",
                       WebkitBackfaceVisibility: "hidden",
@@ -311,7 +311,7 @@ function FlipCard({
         <h3 className="text-lg font-semibold text-foreground mb-2 font-serif group-hover:text-gold transition-colors duration-300">
           {title}
         </h3>
-        <p className="text-silver-dark text-sm leading-relaxed line-clamp-4">
+        <p className="text-silver-dark text-sm leading-relaxed md:line-clamp-4">
           {description}
         </p>
       </div>

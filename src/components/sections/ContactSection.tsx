@@ -128,99 +128,73 @@ export default function ContactSection() {
           </motion.p>
         </div>
 
-        {/* Contact Cards */}
-        <div
-          ref={cardsRef}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-        >
-          {contactItems.map((item, i) => {
-            const Icon = item.icon;
-            const Wrapper = item.href ? "a" : "div";
-            const wrapperProps = item.href
-              ? {
-                  href: item.href,
-                  target: item.href.startsWith("mailto")
-                    ? undefined
-                    : "_blank" as const,
-                  rel: "noopener noreferrer",
-                }
-              : {};
+        {/* Contact Cards + Social */}
+        <div ref={cardsRef} className="max-w-4xl mx-auto">
+          {/* 2×2 contact info grid */}
+          <div className="grid sm:grid-cols-2 gap-5 mb-8">
+            {contactItems.map((item, i) => {
+              const Icon = item.icon;
+              const Wrapper = item.href ? "a" : "div";
+              const wrapperProps = item.href
+                ? {
+                    href: item.href,
+                    target: item.href.startsWith("mailto")
+                      ? undefined
+                      : ("_blank" as const),
+                    rel: "noopener noreferrer",
+                  }
+                : {};
 
-            return (
-              <Wrapper
-                key={i}
-                {...(wrapperProps as any)}
-                className="contact-card group p-6 rounded-xl border border-border/50 bg-charcoal-dark/80 hover:border-gold/30 transition-all duration-500 opacity-0 text-center"
-              >
-                <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-gold/20 transition-colors duration-300">
-                  <Icon className="h-6 w-6 text-gold" />
-                </div>
-                <h4 className="text-xs uppercase tracking-[0.2em] text-gold mb-3 font-sans font-medium">
-                  {item.label}
-                </h4>
-                <p className="text-foreground font-medium mb-2 font-sans text-sm">
-                  {item.value}
-                </p>
-                <p className="text-silver-dark text-xs">{item.note}</p>
-              </Wrapper>
-            );
-          })}
-        </div>
+              return (
+                <Wrapper
+                  key={i}
+                  {...(wrapperProps as any)}
+                  className="contact-card group flex items-start gap-4 p-6 rounded-xl border border-border/50 bg-charcoal-dark/80 hover:border-gold/30 transition-all duration-500 opacity-0"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors duration-300">
+                    <Icon className="h-5 w-5 text-gold" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-xs uppercase tracking-[0.15em] text-gold mb-1 font-sans font-medium">
+                      {item.label}
+                    </h4>
+                    <p className="text-foreground font-medium text-sm mb-0.5 break-words">
+                      {item.value}
+                    </p>
+                    <p className="text-silver-dark text-xs">{item.note}</p>
+                  </div>
+                </Wrapper>
+              );
+            })}
+          </div>
 
-        {/* Map + Social */}
-        <div className="grid lg:grid-cols-5 gap-8 items-start">
-          {/* Map area */}
+          {/* Social bar */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-3 rounded-xl overflow-hidden border border-border/50 h-72 bg-charcoal-dark relative"
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex items-center justify-center gap-6 py-6 rounded-xl border border-border/50 bg-charcoal-dark/80"
           >
-            <iframe
-              title="Simon Master Location"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.5!2d145.1497!3d-37.8297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad639b0e0000001%3A0x0!2s197+Blackburn+Rd%2C+Blackburn+South+VIC+3130!5e0!3m2!1sen!2sau!4v1700000000000"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0"
-            />
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="lg:col-span-2 rounded-xl border border-border/50 bg-charcoal-dark/80 p-8 h-72 flex flex-col justify-center"
-          >
-            <h3 className="text-lg font-semibold text-foreground font-serif mb-6 text-center">
+            <span className="text-sm font-medium text-silver">
               {t.contact.followUs}
-            </h3>
-            <div className="flex justify-center gap-4">
-              {socialLinks.map((social, i) => {
-                const Icon = social.icon;
-                return (
-                  <a
-                    key={i}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="w-14 h-14 rounded-xl border border-border/50 flex items-center justify-center text-silver hover:text-gold hover:border-gold/30 hover:bg-gold/10 transition-all duration-300"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
-            </div>
-            <p className="text-silver-dark text-xs text-center mt-6">
-              {t.contact.email.value}
-            </p>
+            </span>
+            <div className="w-px h-5 bg-border/50" />
+            {socialLinks.map((social, i) => {
+              const Icon = social.icon;
+              return (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-lg border border-border/50 flex items-center justify-center text-silver hover:text-gold hover:border-gold/30 hover:bg-gold/10 transition-all duration-300"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              );
+            })}
           </motion.div>
         </div>
       </div>

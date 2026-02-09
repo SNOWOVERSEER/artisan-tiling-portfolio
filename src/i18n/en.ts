@@ -183,7 +183,7 @@ export const en = {
           },
           {
             name: "Diagonal Lay",
-            detail: "45-degree rotation - expands visual space, more waste",
+            detail: "45-degree rotation - expands visual space, dynamic look",
           },
           {
             name: "Feature Patterns",

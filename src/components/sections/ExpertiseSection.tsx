@@ -297,7 +297,7 @@ export default function ExpertiseSection() {
                               </h4>
                               <ItemIcon className="h-3.5 w-3.5 text-gold/30 shrink-0 group-hover:text-gold/60 transition-colors duration-300" />
                             </div>
-                            <p className="text-silver-dark text-xs leading-relaxed">
+                            <p className="text-silver-dark text-xs leading-relaxed min-h-[2.5rem]">
                               {item.detail}
                             </p>
                           </div>
