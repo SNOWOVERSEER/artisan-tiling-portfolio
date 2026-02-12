@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Toaster } from "sonner";
+import { Analytics } from "@vercel/analytics/react";
 import Index from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 
@@ -14,6 +15,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
+      <Analytics />
     </LanguageProvider>
   );
 }
