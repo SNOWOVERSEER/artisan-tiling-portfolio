@@ -259,7 +259,7 @@ export const en = {
     },
     address: {
       label: "Office",
-      value: "197 Blackburn Rd, Blackburn South VIC 3130",
+      value: "167 Coleman parade Glen Waverley VIC 3150",
       note: "Visits by appointment",
     },
     hours: {
