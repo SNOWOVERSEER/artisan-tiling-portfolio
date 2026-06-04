@@ -254,7 +254,7 @@ export const zh = {
     },
     address: {
       label: "办公地址",
-      value: "197 Blackburn Rd, Blackburn South VIC 3130",
+      value: "167 Coleman parade Glen Waverley VIC 3150",
       note: "来访请预约",
     },
     hours: {
